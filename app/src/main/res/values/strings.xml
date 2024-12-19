@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TimeCalculator</string>
+    <string name="timeCalculator">Калькулятор времени</string>
+    <string name="plus">+</string>
+    <string name="minus">-</string>
+    <string name="result">Результат:</string>
+    <string name="enterTimes">Введите время</string>
+    <string name="enterTimesInCorrectFormat">Введите данные в корректном формате\n*h*m*s</string>
+</resources>
