@@ -1,16 +1,23 @@
 package com.app.timecalculator
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlin.math.absoluteValue
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var toolbar: Toolbar
+
     private lateinit var etOne: EditText
 
     private lateinit var etTwo: EditText
@@ -33,6 +40,18 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
+        // Установка заголовка и подзаголовка
+        supportActionBar?.title = resources.getString(R.string.timeCalculator)
+        supportActionBar?.subtitle = resources.getString(R.string.timeManagement)
+
+        // Установка логотипа
+        supportActionBar?.setLogo(R.drawable.ic_logo)
+        supportActionBar?.setDisplayUseLogoEnabled(true)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+
         etOne = findViewById(R.id.etInputOne)
         etTwo = findViewById(R.id.etInputTwo)
         btnAdd = findViewById(R.id.btnAdd)
@@ -47,6 +66,46 @@ class MainActivity : AppCompatActivity() {
         btnSub.setOnClickListener {
             onBtnClick(Operation.SUB)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.clear_fields -> {
+                clearFields() // Вызываем функцию для удаления полей
+                true
+            }
+            R.id.exit -> {
+                // Toast с результатом
+                Toast.makeText(
+                    applicationContext,
+                    resources.getString(R.string.appClosed),
+                    Toast.LENGTH_SHORT
+                ).show()
+                finish()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+    private fun clearFields() {
+        etOne.text.clear()
+        etTwo.text.clear()
+        tvOperation.clearComposingText()
+        tvResult.text = resources.getString(R.string.dataWasCleared)
+        tvResult.setTextColor(resources.getColor(R.color.black, null))
+
+        // Toast с результатом
+        Toast.makeText(
+            applicationContext,
+            resources.getString(R.string.dataWasCleared),
+            Toast.LENGTH_SHORT
+        ).show()
     }
 
     private fun onBtnClick(oper: Operation) {
@@ -76,6 +135,14 @@ class MainActivity : AppCompatActivity() {
             // Если значение отрицательное, дописываем "-" в строку, а конвертируем без знака
             val resultStr = (if (result < 0) "-" else "") + convertToTimeStr(result.absoluteValue)
             tvResult.text = resultStr
+            tvResult.setTextColor(resources.getColor(R.color.red, null))
+
+            // Toast с результатом
+            Toast.makeText(
+                applicationContext,
+                resultStr,
+                Toast.LENGTH_SHORT
+            ).show()
         }
     }
 
