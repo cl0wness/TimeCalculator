@@ -8,18 +8,17 @@
     android:background="@color/background"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_marginTop="20dp"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/timeCalculator"
-        android:textColor="@color/dark_pink"
-        android:textSize="24sp"
-        android:textStyle="bold"
+        app:popupTheme="@style/MenuItem"
+        app:titleTextColor="@color/white"
+        app:subtitleTextColor="@color/white"
+        android:background="@color/dark_green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -28,7 +27,7 @@
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvTitle">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
             android:id="@+id/tvInputTitle"
@@ -36,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/enterTimes"
-            android:textColor="@color/dark_pink"
+            android:textColor="@color/green"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -61,14 +60,14 @@
                 android:background="@drawable/edit_text_background"
                 android:padding="2dp"
                 android:textAlignment="center"
-                android:textColor="@color/dark_pink"
+                android:textColor="@color/green"
                 android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/tvOperation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/dark_pink"
+                android:textColor="@color/green"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 tools:text="+" />
@@ -82,7 +81,7 @@
                 android:background="@drawable/edit_text_background"
                 android:padding="2dp"
                 android:textAlignment="center"
-                android:textColor="@color/dark_pink"
+                android:textColor="@color/green"
                 android:textSize="24sp" />
         </LinearLayout>
 
@@ -102,7 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="12dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/dark_pink"
+                android:backgroundTint="@color/green"
                 android:text="@string/plus"
                 android:textStyle="bold" />
 
@@ -112,7 +111,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/dark_pink"
+                android:backgroundTint="@color/green"
                 android:text="@string/minus"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -123,7 +122,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:text="@string/result"
-            android:textColor="@color/dark_pink"
+            android:textColor="@color/green"
             android:textSize="24sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -134,14 +133,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:textColor="@color/dark_pink"
+            android:textColor="@color/black"
             android:textSize="28sp"
+            android:text="@string/zeroSec"
             android:gravity="center"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvResultTitle"
-            tools:text="1m" />
+            app:layout_constraintTop_toBottomOf="@id/tvResultTitle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
