@@ -1,9 +1,15 @@
 <resources>
     <string name="app_name">TimeCalculator</string>
     <string name="timeCalculator">Калькулятор времени</string>
+    <string name="timeManagement">Управление временем</string>
     <string name="plus">+</string>
     <string name="minus">-</string>
     <string name="result">Результат:</string>
     <string name="enterTimes">Введите время</string>
     <string name="enterTimesInCorrectFormat">Введите данные в корректном формате\n*h*m*s</string>
+    <string name="clearFields">Очистить поля</string>
+    <string name="exit">Выйти</string>
+    <string name="dataWasCleared">Данные очищены</string>
+    <string name="appClosed">Приложение закрыто</string>
+    <string name="zeroSec">0s</string>
 </resources>
